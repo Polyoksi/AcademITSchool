@@ -1,4 +1,7 @@
-package ru.academits.polyakova.range;
+package ru.academits.polyakova.range.main;
+
+import ru.academits.polyakova.range.Range;
+
 import java.util.Scanner;
 
 public class Main {
@@ -15,3 +18,4 @@ public class Main {
         }
     }
 }
+
