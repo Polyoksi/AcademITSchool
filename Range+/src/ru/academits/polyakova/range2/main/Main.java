@@ -6,8 +6,8 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        double[] interval1 = new double[]{1, 8};
-        double[] interval2 = new double[]{5, 6};
+        double[] interval1 = new double[]{1, 10};
+        double[] interval2 = new double[]{5, 7};
         System.out.println("Длина первого интервала: " + Range.getLength(interval1));
         System.out.println("Длина второго интервала: " + Range.getLength(interval2));
         double[] crossing = Range.getCrossing(interval1, interval2);

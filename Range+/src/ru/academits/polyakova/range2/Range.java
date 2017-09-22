@@ -5,7 +5,6 @@ public class Range {
         return interval[1] - interval[0];
     }
 
-
     public static double[] getCrossing(double[] interval1, double[] interval2) {
         double[] first;
         double[] second;
@@ -19,10 +18,8 @@ public class Range {
 
         double[] interval3 = new double[]{0, 0};
         interval3[0] = second[0];
-        if (first[1] <= second[1] && first[1] > second[0]) {
-            interval3[1] = first[1];
-        } else if (first[1] >= second[1] && first[1] > second[0]) {
-            interval3[1] = second[1];
+        if (first[1] > second[0]) {
+            interval3[1] = Math.max(first[1], second[1]);
         } else {
             return null;
         }
@@ -41,14 +38,9 @@ public class Range {
             second = interval1;
         }
 
-        double[] interval3 = new double[]{0, 0};
+        double[] interval3;
         if (first[1] >= second[0]) {
-            interval3[0] = first[0];
-            if (first[1] < second[1]) {
-                interval3[1] = second[1];
-            } else {
-                interval3[1] = first[1];
-            }
+            interval3 = new double[]{first[0], Math.max(first[1], second[1])};
         } else {
             interval3 = new double[]{first[0], first[1], second[0], second[1]};
         }
