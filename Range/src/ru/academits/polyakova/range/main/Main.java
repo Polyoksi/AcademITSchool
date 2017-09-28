@@ -9,7 +9,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите число: ");
         double number = scanner.nextDouble();
-        Range range = new Range(6, 15);
+        Range range = new Range(1, 15);
         System.out.printf("Длина отрезка: %.2f%n", range.getLength());
         if (range.isInside(number)) {
             System.out.printf("Ваше число принадлежит отрезку от %.2f до %.2f%n", range.getFrom(), range.getTo());
@@ -17,7 +17,7 @@ public class Main {
             System.out.printf("Ваше число не принадлежит отрезку от %.2f до %.2f%n", range.getFrom(), range.getTo());
         }
 
-        Range interval1 = new Range(1, 5);
+        Range interval1 = new Range(4, 9);
         Range resultCrossing = range.getCrossing(interval1);
         if (resultCrossing != null) {
             System.out.printf("Пересечение интервалов: [%.2f, %.2f]%n", resultCrossing.getFrom(), resultCrossing.getTo());
