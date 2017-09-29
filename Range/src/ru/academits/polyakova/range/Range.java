@@ -37,16 +37,20 @@ public class Range {
         double from = interval1.from;
         double to = interval1.to;
         if (this.from <= from) {
-            if (this.to <= from) {
+            if (this.to < from) {
                 return null;
-            } else {
+            } else if (this.to > from) {
                 return new Range(from, Math.min(this.to, to));
+            } else {
+                return new Range(this.to, from);
             }
         } else {
-            if (to <= this.from) {
+            if (to < this.from) {
                 return null;
-            } else {
+            } else if (to > this.from) {
                 return new Range(this.from, Math.min(this.to, to));
+            } else {
+                return new Range(to, this.from);
             }
         }
     }
@@ -72,24 +76,24 @@ public class Range {
     public Range[] getResidual(Range interval1) {
         double from = interval1.from;
         double to = interval1.to;
-        if (this.from <= from) {
+        if (this.from < from) {
             if (this.to <= from) {
                 return new Range[]{new Range(this.from, this.to)};
             } else {
-                if (this.to != to) {
-                    return new Range[]{new Range(this.from, from), new Range(Math.min(this.to, to), Math.max(this.to, to))};
-                } else {
+                if (this.to <= to) {
                     return new Range[]{new Range(this.from, from)};
+                } else {
+                    return new Range[]{new Range(this.from, from), new Range(to, this.to)};
                 }
             }
         } else {
-            if (to <= this.from) {
-                return new Range[]{new Range(from, to)};
+            if (this.from >= to) {
+                return new Range[]{new Range(this.from, this.to)};
             } else {
-                if (to != this.to) {
-                    return new Range[]{new Range(from, this.from), new Range(Math.min(this.to, to), Math.max(this.to, to))};
+                if (this.to <= to) {
+                    return null;
                 } else {
-                    return new Range[]{new Range(from, this.from)};
+                    return new Range[]{new Range(to, this.to)};
                 }
             }
         }
