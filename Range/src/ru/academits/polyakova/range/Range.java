@@ -59,16 +59,20 @@ public class Range {
         double from = interval1.from;
         double to = interval1.to;
         if (this.from <= from) {
-            if (this.to <= from) {
+            if (this.to < from) {
                 return new Range[]{new Range(this.from, this.to), new Range(from, to)};
-            } else {
+            } else if (this.to > from) {
                 return new Range[]{new Range(this.from, Math.max(this.to, to))};
+            } else {
+                return new Range[]{new Range(this.from, to)};
             }
         } else {
-            if (to <= this.from) {
+            if (to < this.from) {
                 return new Range[]{new Range(from, to), new Range(this.from, this.to)};
-            } else {
+            } else if (to > this.from) {
                 return new Range[]{new Range(from, Math.max(this.to, to))};
+            } else {
+                return new Range[]{new Range(from, this.to)};
             }
         }
     }
@@ -91,7 +95,7 @@ public class Range {
                 return new Range[]{new Range(this.from, this.to)};
             } else {
                 if (this.to <= to) {
-                    return null;
+                    return new Range[]{};
                 } else {
                     return new Range[]{new Range(to, this.to)};
                 }
