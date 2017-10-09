@@ -19,6 +19,10 @@ public class Triangle implements Shapes {
         this.y3 = y3;
     }
 
+    private double getSide(double x1, double x2, double y1, double y2) {
+        return Math.sqrt((Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)));
+    }
+
     public double getWidth() {
         return Math.max(Math.max(x1, x2), x3) - Math.min(Math.min(x1, x2), x3);
     }
@@ -32,13 +36,11 @@ public class Triangle implements Shapes {
     }
 
     public double getPerimeter() {
-        double side1 = Math.sqrt((Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)));
-        double side2 = Math.sqrt((Math.pow((x3 - x1), 2) + Math.pow((y3 - y1), 2)));
-        double side3 = Math.sqrt((Math.pow((x3 - x2), 2) + Math.pow((y3 - y2), 2)));
-        return side1 + side2 + side3;
+        return getSide(x1, x2, y1, y2) + getSide(x1, x3, y1, y3) + getSide(x2, x3, y2, y3);
     }
 
     public String toString() {
-        return "Площадь и периметр треугольника " + getArea() + " " + getPerimeter();
+        return "Стороны треугольника " + getSide(x1, x2, y1, y2) + " " + getSide(x1, x3, y1, y3) + " " +
+                getSide(x2, x3, y2, y3);
     }
 }

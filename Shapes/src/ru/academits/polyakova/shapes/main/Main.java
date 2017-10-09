@@ -2,6 +2,9 @@ package ru.academits.polyakova.shapes.main;
 
 import ru.academits.polyakova.shapes.*;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class Main {
     private void getMaxArea(Shapes[] shapes) {
         double maxArea = 0;
@@ -19,15 +22,12 @@ public class Main {
     }
 
     private void getSecondPerimeter(Shapes[] shapes) {
-        for (int i = 0; i < shapes.length; i++) {
-            for (int j = 0; j < shapes.length; j++) {
-                if (shapes[i].getPerimeter() > shapes[j].getPerimeter()) {
-                    Shapes temp = shapes[i];
-                    shapes[i] = shapes[j];
-                    shapes[j] = temp;
-                }
+        Arrays.sort(shapes, new Comparator<Shapes>() {
+            @Override
+            public int compare(Shapes o1, Shapes o2) {
+                return 0;
             }
-        }
+        });
         System.out.println("Периметры фигур ");
         for (Shapes i : shapes) {
             System.out.printf("%.2f  ", i.getPerimeter());

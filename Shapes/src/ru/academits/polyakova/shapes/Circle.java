@@ -25,8 +25,6 @@ public class Circle implements Shapes {
 
     @Override
     public String toString() {
-        return "Площадь и периметр окружности " + getArea() + getPerimeter();
+        return "Радиус окружности " + radius;
     }
-
-
 }

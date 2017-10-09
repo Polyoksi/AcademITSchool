@@ -26,6 +26,6 @@ public class Rectangle implements Shapes {
     }
 
     public String toString() {
-        return "Площадь и периметр прямоугольника " + getArea() + " " + getPerimeter();
+        return "Стороны прямоугольника " + side1 + side2;
     }
 }

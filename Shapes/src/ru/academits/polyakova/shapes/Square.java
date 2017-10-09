@@ -24,6 +24,6 @@ public class Square implements Shapes {
     }
 
     public String toString() {
-        return "Площадь и периметр квадрата " + getArea() + " " + getPerimeter();
+        return "Сторона квадрата " + side;
     }
 }
