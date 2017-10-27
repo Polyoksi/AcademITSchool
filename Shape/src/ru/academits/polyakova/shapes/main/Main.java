@@ -15,7 +15,7 @@ public class Main {
         System.out.printf("Максимальная площадь: %.2f%n", shapes[0].getArea());
     }
 
-    private static void getSecondPerimeter(Shapes[] shapes) {
+    private static void SecondPerimeter(Shapes[] shapes) {
         Arrays.sort(shapes, new PerimeterComparator());
 
         System.out.println("Периметры фигур ");
@@ -30,7 +30,7 @@ public class Main {
         Shapes[] shapes = {new Circle(5), new Circle(4), new Rectangle(3, 5), new Square(5),
                 new Triangle(1, 2, 2, 6, 6, 1), new Rectangle(2, 6)};
         MaxArea(shapes);
-        getSecondPerimeter(shapes);
+        SecondPerimeter(shapes);
         System.out.println(shapes[0]);
     }
 }
