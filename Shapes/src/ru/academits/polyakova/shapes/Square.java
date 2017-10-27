@@ -26,4 +26,22 @@ public class Square implements Shapes {
     public String toString() {
         return "Сторона квадрата " + side;
     }
+
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        if (o == null || o.getClass() != this.getClass()) {
+            return false;
+        }
+        Square s = (Square) o;
+        return side == s.side;
+    }
+
+    public int hashCode() {
+        final int prime = 7;
+        int hash = 1;
+        hash = prime * hash + (int) side;
+        return hash;
+    }
 }

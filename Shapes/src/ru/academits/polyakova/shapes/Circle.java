@@ -27,4 +27,22 @@ public class Circle implements Shapes {
     public String toString() {
         return "Радиус окружности " + radius;
     }
+
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        if (o == null || o.getClass() != this.getClass()) {
+            return false;
+        }
+        Circle c = (Circle) o;
+        return radius == c.radius;
+    }
+
+    public int hashCode() {
+        final int prime = 7;
+        int hash = 1;
+        hash = prime * hash + (int) radius;
+        return hash;
+    }
 }

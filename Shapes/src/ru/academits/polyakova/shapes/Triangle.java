@@ -19,7 +19,7 @@ public class Triangle implements Shapes {
         this.y3 = y3;
     }
 
-    private double getSide(double x1, double x2, double y1, double y2) {
+    private static double getSide(double x1, double x2, double y1, double y2) {
         return Math.sqrt((Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)));
     }
 
@@ -40,7 +40,29 @@ public class Triangle implements Shapes {
     }
 
     public String toString() {
-        return "Стороны треугольника " + getSide(x1, x2, y1, y2) + " " + getSide(x1, x3, y1, y3) + " " +
-                getSide(x2, x3, y2, y3);
+        return "Координаты сторон треугольника " + x1 + x2 + x3 + y1 + y2 + y3;
+    }
+
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        if (o == null || o.getClass() != this.getClass()) {
+            return false;
+        }
+        Triangle t = (Triangle) o;
+        return x1 == t.x1 && x2 == t.x2 && x3 == t.x3 && y1 == t.y1 && y2 == t.y2 && y3 == t.y3;
+    }
+
+    public int hashCode() {
+        final int prime = 7;
+        int hash = 1;
+        hash = prime * hash + (int) x1;
+        hash = prime * hash + (int) x2;
+        hash = prime * hash + (int) x3;
+        hash = prime * hash + (int) y1;
+        hash = prime * hash + (int) y2;
+        hash = prime * hash + (int) y3;
+        return hash;
     }
 }
