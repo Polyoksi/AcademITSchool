@@ -3,9 +3,7 @@ package ru.academits.polyakova.array;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Array {
     public static void main(String[] args) throws FileNotFoundException {
@@ -13,32 +11,28 @@ public class Array {
                 "\\IdeaProjects\\AcademITSchool\\Array\\src\\ru\\academits\\polyakova" +
                 "\\array\\input.txt"));
         ) {
+            ArrayList<Integer> array = new ArrayList<>();
             while (scanner.hasNext()) {
-                String string = scanner.nextLine();
-                String[] numbers = string.split(", ");
-                for (String e : numbers) {
-                    System.out.print(e + " ");
-                }
-                System.out.println();
-                int[] array = new int[numbers.length];
-                for (String i : numbers) {
-                    for (int e : array) {
-                        e = Integer.parseInt(i);
-                        System.out.print(e + " ");
-                    }
-                }
-                for (int i = 0; i < array.length; i++) {
-                    for (int j = 0; j < array.length; j++) {
-                        array[j] = Integer.parseInt(numbers[i]);
-
-                    }
-                }
-                for (int e : array) {
-                    System.out.print(e + " ");
-                }
-
+                array.add(scanner.nextInt());
             }
-        }
+            System.out.print(array);
+            System.out.println();
+            System.out.println("Удаление четных элементов: ");
 
+            for (int i = array.size() - 1; i >= 0; i--) {
+                if (array.get(i) % 2 == 0) {
+                    array.remove(i);
+                }
+            }
+            System.out.print(array);
+            System.out.println();
+
+            Set<Integer> hs = new LinkedHashSet<>();
+            hs.addAll(array);
+            array.clear();
+            array.addAll(hs);
+            System.out.println("Удаление повторений: ");
+            System.out.print(array);
+        }
     }
 }
