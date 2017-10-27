@@ -1,4 +1,6 @@
-package ru.academits.polyakova.shapes;
+package ru.academits.polyakova.shapes.main;
+
+import ru.academits.polyakova.shapes.Shapes;
 
 import java.util.Comparator;
 
