@@ -1,11 +1,11 @@
-package ru.academits.polyakova.shapes.main;
+package ru.academits.polyakova.shape.main;
 
-import ru.academits.polyakova.shapes.Shapes;
+import ru.academits.polyakova.shape.Shape;
 
 import java.util.Comparator;
 
-public class PerimeterComparator implements Comparator<Shapes> {
-    public int compare(Shapes o1, Shapes o2) {
+public class PerimeterComparator implements Comparator<Shape> {
+    public int compare(Shape o1, Shape o2) {
         if (o1.getPerimeter() == o2.getPerimeter()) {
             return 0;
         } else {

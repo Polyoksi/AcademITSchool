@@ -1,6 +1,6 @@
-package ru.academits.polyakova.shapes;
+package ru.academits.polyakova.shape;
 
-public class Rectangle implements Shapes {
+public class Rectangle implements Shape {
     private double side1;
     private double side2;
 

@@ -1,31 +1,30 @@
-package ru.academits.polyakova.shapes;
+package ru.academits.polyakova.shape;
 
-public class Circle implements Shapes {
-    private double radius;
+public class Square implements Shape {
+    private double side;
 
-    public Circle(double radius) {
-        this.radius = radius;
+    public Square(double side) {
+        this.side = side;
     }
 
     public double getWidth() {
-        return radius * 2;
+        return side;
     }
 
     public double getHeight() {
-        return radius * 2;
+        return side;
     }
 
     public double getArea() {
-        return Math.PI * Math.pow(radius, 2);
+        return side * side;
     }
 
     public double getPerimeter() {
-        return 2 * Math.PI * radius;
+        return side * 4;
     }
 
-    @Override
     public String toString() {
-        return "Радиус окружности " + radius;
+        return "Сторона квадрата " + side;
     }
 
     public boolean equals(Object o) {
@@ -35,14 +34,14 @@ public class Circle implements Shapes {
         if (o == null || o.getClass() != this.getClass()) {
             return false;
         }
-        Circle c = (Circle) o;
-        return radius == c.radius;
+        Square s = (Square) o;
+        return side == s.side;
     }
 
     public int hashCode() {
         final int prime = 7;
         int hash = 1;
-        hash = prime * hash + (int) radius;
+        hash = prime * hash + (int) side;
         return hash;
     }
 }

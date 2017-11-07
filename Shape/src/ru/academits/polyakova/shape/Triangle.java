@@ -1,8 +1,6 @@
-package ru.academits.polyakova.shapes;
+package ru.academits.polyakova.shape;
 
-import sun.nio.cs.ext.MS874;
-
-public class Triangle implements Shapes {
+public class Triangle implements Shape {
     private double x1;
     private double x2;
     private double x3;

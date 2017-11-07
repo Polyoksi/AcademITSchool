@@ -1,6 +1,6 @@
-package ru.academits.polyakova.shapes;
+package ru.academits.polyakova.shape;
 
-public interface Shapes {
+public interface Shape {
     double getWidth();
 
     double getHeight();
