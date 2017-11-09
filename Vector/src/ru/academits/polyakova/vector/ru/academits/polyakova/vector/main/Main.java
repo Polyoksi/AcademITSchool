@@ -2,8 +2,6 @@ package ru.academits.polyakova.vector.ru.academits.polyakova.vector.main;
 
 import ru.academits.polyakova.vector.Vector;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
