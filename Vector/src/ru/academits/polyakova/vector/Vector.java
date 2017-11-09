@@ -1,47 +1,55 @@
 package ru.academits.polyakova.vector;
-import java.util.ArrayList;
 
 public class Vector {
-    private int n = 0;
-    ArrayList<Double> vector = new ArrayList<>(n);
+
+    private double[] vector = new double[]{};
+
     public Vector(int n){
-        this.n = n;
+        if(n <= 0){
+            throw new IllegalArgumentException();
+        }
+        vector = new double[n];
     }
 
-    public Vector(ArrayList<Double> vector){
-        this.vector = vector;
+    public Vector(Vector array){
+
+        for(int i = 0; i < array.getSize(); i++){
+            //vector[i] = (double) array[i];
+        }
     }
 
     public Vector(double[] array){
-        for(int i = 0; i < vector.size(); i++){
-            double elem = vector.get(i);
-            elem = array[i];
+        for(int i = 0; i < vector.length; i++){
+            double elem = array[i];
+            vector[i] = elem;
         }
     }
 
     public Vector(int n, double[] array){
-        for(int i = 0; i < vector.size(); i++){
-            double elem = vector.get(i);
-            elem = array[i];
+        for(int i = 0; i < vector.length; i++){
+            double elem = array[i];
+            vector[i]=elem;
         }
         if(array.length < n){
-            for(int i = array.length; i < vector.size(); i++){
-                double elem = vector.get(i);
-                elem = 0;
+            for(int i = array.length; i < vector.length; i++){
+                vector[i] = 0;
             }
         }
     }
 
-    public static int getSize(ArrayList<Double> vector){
-        return vector.size();
+    public int getSize(){
+        return vector.length;
 
     }
 
-    public String toString(ArrayList<Double> vector){
-        String result = "";
-        for(int i = 0; i < vector.size(); i++){
-            result += vector.get(i) + ", ";
+    public String toString(){
+        StringBuilder result = new StringBuilder();
+        for(int i = 0; i < vector.length; i++){
+            result.append(vector[i]);
+            if(i != vector.length){
+                result.append(", ");
+            }
         }
-        return result;
+        return "{"  + result.toString() + "}";
     }
 }

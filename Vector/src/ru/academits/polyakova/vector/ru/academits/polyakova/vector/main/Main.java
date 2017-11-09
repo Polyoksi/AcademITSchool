@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        double[] array = new double[]{1,2,3,4,60};
+        double[] array = new double[]{1, 2, 3, 4, 60};
         Vector vector = new Vector(array);
         System.out.print(vector.toString());
 
