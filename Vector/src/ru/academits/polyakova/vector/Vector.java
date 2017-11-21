@@ -2,7 +2,15 @@ package ru.academits.polyakova.vector;
 
 public class Vector {
 
-    private double[] vector = new double[]{};
+    private double[] vector;
+
+    private Vector(){
+        this.vector = vector;
+    }
+
+    private double[] getVector(){
+        return vector;
+    }
 
     public Vector(int n) {
         if (n <= 0) {
@@ -12,21 +20,20 @@ public class Vector {
     }
 
     public Vector(Vector array) {
-
         for (int i = 0; i < array.getSize(); i++) {
-            //vector[i] = (double) array[i];
+           vector[i] = array.getVector()[i];
         }
     }
 
     public Vector(double[] array) {
-        for (int i = 0; i < vector.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             double elem = array[i];
             vector[i] = elem;
         }
     }
 
     public Vector(int n, double[] array) {
-        for (int i = 0; i < vector.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             double elem = array[i];
             vector[i] = elem;
         }
@@ -37,7 +44,7 @@ public class Vector {
         }
     }
 
-    public int getSize() {
+    private int getSize() {
         return vector.length;
 
     }
@@ -50,6 +57,16 @@ public class Vector {
                 result.append(", ");
             }
         }
-        return "{" + result.toString() + "}";
+        result.insert(0, "}");
+        result.append("}");
+        return result.toString();
+    }
+
+    public Vector sumVector(Vector vector2) {
+        Vector result = new Vector();
+        for (int i = 0; i < this.vector.length; i++) {
+            result.getVector()[i] = this.vector[i] + vector2.getVector()[i];
+        }
+        return result;
     }
 }
