@@ -57,7 +57,7 @@ public class Vector {
                 result.append(", ");
             }
         }
-        result.insert(0, "}");
+        result.insert(0, "{");
         result.append("}");
         return result.toString();
     }
@@ -66,6 +66,14 @@ public class Vector {
         Vector result = new Vector();
         for (int i = 0; i < this.vector.length; i++) {
             result.getVector()[i] = this.vector[i] + vector2.getVector()[i];
+        }
+        return result;
+    }
+
+    public Vector differenceVector(Vector vector2) {
+        Vector result = new Vector();
+        for (int i = 0; i < this.vector.length; i++) {
+            result.getVector()[i] = this.vector[i] - vector2.getVector()[i];
         }
         return result;
     }
