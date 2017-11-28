@@ -1,7 +1,5 @@
 package ru.academits.polyakova.vector;
 
-import javafx.beans.binding.StringBinding;
-
 import java.util.Arrays;
 
 public class Vector {
@@ -43,15 +41,25 @@ public class Vector {
         result.append("}");
         return result.toString();
     }
-
 }
 /*
-    public Vector sumVector(Vector vector2) {
-        for (int i = 0; i < this.vector.length; i++) {
-            result.getVector()[i] = this.vector[i] + vector2.getVector()[i];
+    public double[] sumVector(Vector vector2) {
+        double[] min;
+        double[] max;
+        if(vector.length < vector2.getSize()){
+            min = vector;
+            max = vector2.vector;
+        } else {
+            min = vector2.vector;
+            max = vector;
+        }
+
+        for (int i = 0; i < max.length; i++) {
+            vector[i] = min[i] + max[i];
         }
         return vector;
     }
+}
 /*
     public Vector differenceVector(Vector vector2) {
         Vector result = new Vector();
