@@ -42,7 +42,7 @@ public class Vector {
         return result.toString();
     }
 
-    public double[] sumVector(Vector vector2) {
+    public double[] sum(Vector vector2) {
         if (vector.length < vector2.getSize()) {
             vector = Arrays.copyOf(vector, vector2.getSize());
         } else {
@@ -54,7 +54,7 @@ public class Vector {
         return vector;
     }
 
-    public double[] differenceVector(Vector vector2) {
+    public double[] dif(Vector vector2) {
         if (vector.length < vector2.getSize()) {
             vector = Arrays.copyOf(vector, vector2.getSize());
         } else {
@@ -62,6 +62,20 @@ public class Vector {
         }
         for (int i = 0; i < vector.length; i++) {
             vector[i] = vector[i] - vector2.vector[i];
+        }
+        return vector;
+    }
+
+    public double[] multiplication(double number) {
+        for (int i = 0; i < vector.length; i++) {
+            vector[i] *= number;
+        }
+        return vector;
+    }
+
+    public double[] turn() {
+        for (int i = 0; i < vector.length; i++) {
+            vector[i] *= -1;
         }
         return vector;
     }
