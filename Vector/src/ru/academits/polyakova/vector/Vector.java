@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Vector {
     private double[] vector;
 
-    public Vector(int n) {
+    private Vector(int n) {
         if (n <= 0) {
             throw new IllegalArgumentException();
         }
