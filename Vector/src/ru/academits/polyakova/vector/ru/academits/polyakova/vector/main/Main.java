@@ -28,5 +28,8 @@ public class Main {
         System.out.printf(vector1.toString() + vector2.toString());
         System.out.println();
         System.out.println("Сумма векторов: " + Vector.sumVector(vector1, vector2));
+        System.out.printf(vector3.toString() + vector4.toString());
+        System.out.println();
+        System.out.println("Разность векторов: " + Vector.difVector(vector3, vector4));
     }
 }
