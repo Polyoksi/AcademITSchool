@@ -31,5 +31,8 @@ public class Main {
         System.out.printf(vector3.toString() + vector4.toString());
         System.out.println();
         System.out.println("Разность векторов: " + Vector.difVector(vector3, vector4));
+        System.out.printf(vector3.toString() + vector4.toString());
+        System.out.println();
+        System.out.println("Скалярное произведение: " + Vector.scalarMultiplication(vector3, vector4));
     }
 }
