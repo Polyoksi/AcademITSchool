@@ -25,6 +25,8 @@ public class Main {
         System.out.println("Умножение на число: " + vector3.toString() + " * " + 6 + " = "
                 + Arrays.toString(vector3.multiplication(6)));
         System.out.println("Разворот: " + Arrays.toString(vector4.turn()));
-
+        System.out.printf(vector1.toString() + vector2.toString());
+        System.out.println();
+        System.out.println("Сумма векторов: " + Vector.sumVector(vector1, vector2));
     }
 }
