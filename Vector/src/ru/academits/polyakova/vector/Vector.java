@@ -80,6 +80,30 @@ public class Vector {
         return vector;
     }
 
+    public boolean equals(Vector vector) {
+        if (vector == this) {
+            return true;
+        }
+        if (vector == null || vector.getClass() != this.getClass()) {
+            return false;
+        }
+        boolean result = false;
+        for (int i = 0; i < vector.getSize(); i++) {
+            if (vector.getSize() == this.getSize()) {
+                if (vector.vector[i] == this.vector[i]) {
+                    result = true;
+                }
+            }
+        }
+        return result;
+    }
+
+    public int hashCode() {
+        final int prime = 7;
+        int hash = 1;
+        return prime * hash + Arrays.hashCode(vector);
+    }
+
     public static Vector sumVector(Vector vector1, Vector vector2) {
         Vector result = new Vector(Math.max(vector1.getSize(), vector2.getSize()));
         if (vector1.getSize() < vector2.getSize()) {
@@ -106,7 +130,7 @@ public class Vector {
         return result;
     }
 
-    public static double scalarMultiplication(Vector vector1, Vector vector2){
+    public static double scalarMultiplication(Vector vector1, Vector vector2) {
         double result = 0;
         if (vector1.getSize() < vector2.getSize()) {
             vector1.vector = Arrays.copyOf(vector1.vector, vector2.getSize());
@@ -114,7 +138,7 @@ public class Vector {
             vector2.vector = Arrays.copyOf(vector2.vector, vector1.getSize());
         }
         for (int i = 0; i < vector1.getSize(); i++) {
-            result +=  vector1.vector[i] * vector2.vector[i];
+            result += vector1.vector[i] * vector2.vector[i];
         }
         return result;
     }
