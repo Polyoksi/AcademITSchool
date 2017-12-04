@@ -13,11 +13,11 @@ public class Vector {
     }
 
     public Vector(Vector vector) {
-        this.vector = vector.vector;
+        this.vector = Arrays.copyOf(vector.vector, vector.getSize());
     }
 
     public Vector(double[] vector) {
-        this.vector = vector;
+        this.vector = Arrays.copyOf(vector, vector.length);
     }
 
     public Vector(int n, double[] array) {
@@ -41,31 +41,28 @@ public class Vector {
         result.append("}");
         return result.toString();
     }
-}
-/*
-    public double[] sumVector(Vector vector2) {
-        double[] min;
-        double[] max;
-        if(vector.length < vector2.getSize()){
-            min = vector;
-            max = vector2.vector;
-        } else {
-            min = vector2.vector;
-            max = vector;
-        }
 
-        for (int i = 0; i < max.length; i++) {
-            vector[i] = min[i] + max[i];
+    public double[] sumVector(Vector vector2) {
+        if (vector.length < vector2.getSize()) {
+            vector = Arrays.copyOf(vector, vector2.getSize());
+        } else {
+            vector2.vector = Arrays.copyOf(vector2.vector, vector.length);
+        }
+        for (int i = 0; i < vector.length; i++) {
+            vector[i] = vector[i] + vector2.vector[i];
+        }
+        return vector;
+    }
+
+    public double[] differenceVector(Vector vector2) {
+        if (vector.length < vector2.getSize()) {
+            vector = Arrays.copyOf(vector, vector2.getSize());
+        } else {
+            vector2.vector = Arrays.copyOf(vector2.vector, vector.length);
+        }
+        for (int i = 0; i < vector.length; i++) {
+            vector[i] = vector[i] - vector2.vector[i];
         }
         return vector;
     }
 }
-/*
-    public Vector differenceVector(Vector vector2) {
-        Vector result = new Vector();
-        for (int i = 0; i < this.vector.length; i++) {
-            result.getVector()[i] = this.vector[i] - vector2.getVector()[i];
-        }
-        return result;
-    }
-}*/
