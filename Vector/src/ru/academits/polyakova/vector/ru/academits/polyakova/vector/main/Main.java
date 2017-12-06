@@ -22,11 +22,15 @@ public class Main {
         System.out.println();
         System.out.print(vector3);
         System.out.println();
-        System.out.println("Сумма векторов: " + Arrays.toString(vector1.sum(vector2)));
-        System.out.println("Разность векторов: " + Arrays.toString(vector2.dif(vector4)));
+        vector1.sum(vector2);
+        System.out.println("Сумма векторов: " + vector1);
+        vector2.dif(vector4);
+        System.out.println("Разность векторов: " + vector2);
+        vector3.multiplication(6);
         System.out.println("Умножение на число: " + vector3.toString() + " * " + 6 + " = "
-                + Arrays.toString(vector3.multiplication(6)));
-        System.out.println("Разворот: " + Arrays.toString(vector4.turn()));
+                + vector3);
+        vector4.turn();
+        System.out.println("Разворот: " + vector4);
         System.out.printf(vector1.toString() + vector2.toString());
         System.out.println();
         System.out.println("Сумма векторов: " + Vector.sumVector(vector1, vector2));

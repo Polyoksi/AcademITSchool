@@ -42,7 +42,7 @@ public class Vector {
         return result.toString();
     }
 
-    public double[] sum(Vector vector2) {
+    public void sum(Vector vector2) {
         if (vector.length < vector2.getSize()) {
             vector = Arrays.copyOf(vector, vector2.getSize());
         } else {
@@ -51,10 +51,9 @@ public class Vector {
         for (int i = 0; i < vector.length; i++) {
             vector[i] = vector[i] + vector2.vector[i];
         }
-        return vector;
     }
 
-    public double[] dif(Vector vector2) {
+    public void dif(Vector vector2) {
         if (vector.length < vector2.getSize()) {
             vector = Arrays.copyOf(vector, vector2.getSize());
         } else {
@@ -63,34 +62,30 @@ public class Vector {
         for (int i = 0; i < vector.length; i++) {
             vector[i] = vector[i] - vector2.vector[i];
         }
-        return vector;
     }
 
-    public double[] multiplication(double number) {
+    public void multiplication(double number) {
         for (int i = 0; i < vector.length; i++) {
             vector[i] *= number;
         }
-        return vector;
     }
 
-    public double[] turn() {
-        for (int i = 0; i < vector.length; i++) {
-            vector[i] *= -1;
-        }
-        return vector;
+    public void turn() {
+        multiplication(-1);
     }
 
-    public boolean equals(Vector vector) {
-        if (vector == this) {
+    public boolean equals(Object o) {
+        if (o == this) {
             return true;
         }
-        if (vector == null || vector.getClass() != this.getClass()) {
+        if (o == null || o.getClass() != this.getClass()) {
             return false;
         }
+        Vector v = (Vector) o;
         boolean result = false;
-        for (int i = 0; i < vector.getSize(); i++) {
-            if (vector.getSize() == this.getSize()) {
-                if (vector.vector[i] == this.vector[i]) {
+        if (((Vector) o).getSize() == this.getSize()) {
+            for (int i = 0; i < ((Vector) o).getSize(); i++) {
+                if (((Vector) o).vector[i] == this.vector[i]) {
                     result = true;
                 }
             }
@@ -106,27 +101,15 @@ public class Vector {
 
     public static Vector sumVector(Vector vector1, Vector vector2) {
         Vector result = new Vector(Math.max(vector1.getSize(), vector2.getSize()));
-        if (vector1.getSize() < vector2.getSize()) {
-            vector1.vector = Arrays.copyOf(vector1.vector, vector2.getSize());
-        } else {
-            vector2.vector = Arrays.copyOf(vector2.vector, vector1.getSize());
-        }
-        for (int i = 0; i < vector1.getSize(); i++) {
-            result.vector[i] = vector1.vector[i] + vector2.vector[i];
-        }
+        result.vector = Arrays.copyOf(vector1.vector, vector1.getSize());
+        result.sum(vector2);
         return result;
     }
 
     public static Vector difVector(Vector vector1, Vector vector2) {
         Vector result = new Vector(Math.max(vector1.getSize(), vector2.getSize()));
-        if (vector1.getSize() < vector2.getSize()) {
-            vector1.vector = Arrays.copyOf(vector1.vector, vector2.getSize());
-        } else {
-            vector2.vector = Arrays.copyOf(vector2.vector, vector1.getSize());
-        }
-        for (int i = 0; i < vector1.getSize(); i++) {
-            result.vector[i] = vector1.vector[i] - vector2.vector[i];
-        }
+        result.vector = Arrays.copyOf(vector1.vector, vector1.getSize());
+        result.dif(vector2);
         return result;
     }
 
