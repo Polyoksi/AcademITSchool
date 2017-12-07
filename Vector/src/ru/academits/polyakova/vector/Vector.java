@@ -45,10 +45,8 @@ public class Vector {
     public void sum(Vector vector2) {
         if (vector.length < vector2.getSize()) {
             vector = Arrays.copyOf(vector, vector2.getSize());
-        } else {
-            vector2.vector = Arrays.copyOf(vector2.vector, vector.length);
         }
-        for (int i = 0; i < vector.length; i++) {
+        for (int i = 0; i < vector2.getSize(); i++) {
             vector[i] = vector[i] + vector2.vector[i];
         }
     }
@@ -56,10 +54,8 @@ public class Vector {
     public void dif(Vector vector2) {
         if (vector.length < vector2.getSize()) {
             vector = Arrays.copyOf(vector, vector2.getSize());
-        } else {
-            vector2.vector = Arrays.copyOf(vector2.vector, vector.length);
         }
-        for (int i = 0; i < vector.length; i++) {
+        for (int i = 0; i < vector2.getSize(); i++) {
             vector[i] = vector[i] - vector2.vector[i];
         }
     }
@@ -74,6 +70,10 @@ public class Vector {
         multiplication(-1);
     }
 
+    public void setItemIndex(double number, int index){
+        vector[index] = number;
+    }
+
     public boolean equals(Object o) {
         if (o == this) {
             return true;
@@ -81,12 +81,13 @@ public class Vector {
         if (o == null || o.getClass() != this.getClass()) {
             return false;
         }
-        Vector v = (Vector) o;
         boolean result = false;
         if (((Vector) o).getSize() == this.getSize()) {
             for (int i = 0; i < ((Vector) o).getSize(); i++) {
                 if (((Vector) o).vector[i] == this.vector[i]) {
                     result = true;
+                } else {
+                    return false;
                 }
             }
         }
@@ -115,12 +116,7 @@ public class Vector {
 
     public static double scalarMultiplication(Vector vector1, Vector vector2) {
         double result = 0;
-        if (vector1.getSize() < vector2.getSize()) {
-            vector1.vector = Arrays.copyOf(vector1.vector, vector2.getSize());
-        } else {
-            vector2.vector = Arrays.copyOf(vector2.vector, vector1.getSize());
-        }
-        for (int i = 0; i < vector1.getSize(); i++) {
+        for (int i = 0; i < Math.min(vector1.getSize(), vector2.getSize()); i++) {
             result += vector1.vector[i] * vector2.vector[i];
         }
         return result;
