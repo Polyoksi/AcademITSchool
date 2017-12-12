@@ -33,7 +33,7 @@ public class Main {
         System.out.println("Разворот: " + vector4);
         System.out.printf(vector1.toString());
         System.out.println();
-        vector1.setItemIndex(10, 1);
+        vector1.setItem(1, 10);
         System.out.println("Замена элемента по индексу " + "1: " + vector1);
         System.out.printf(vector1.toString() + vector2.toString());
         System.out.println();

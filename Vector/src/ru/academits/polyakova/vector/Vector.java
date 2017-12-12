@@ -70,8 +70,11 @@ public class Vector {
         multiplication(-1);
     }
 
-    public void setItemIndex(double number, int index){
+    public void setItem(int index, double number){
         vector[index] = number;
+    }
+    public double getItem(int index){
+        return vector[index];
     }
 
     public boolean equals(Object o) {
@@ -116,7 +119,8 @@ public class Vector {
 
     public static double scalarMultiplication(Vector vector1, Vector vector2) {
         double result = 0;
-        for (int i = 0; i < Math.min(vector1.getSize(), vector2.getSize()); i++) {
+        int minLength = Math.min(vector1.getSize(), vector2.getSize());
+        for (int i = 0; i < minLength; i++) {
             result += vector1.vector[i] * vector2.vector[i];
         }
         return result;
