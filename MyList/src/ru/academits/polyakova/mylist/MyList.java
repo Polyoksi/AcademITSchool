@@ -14,7 +14,6 @@ public class MyList<T> {
 
     public int getSize() {
         if (head != null) {
-            size++;
             while (head.getNext() != null) {
                 size++;
                 head = head.getNext();
@@ -38,5 +37,24 @@ public class MyList<T> {
         head = head.getNext();
         size--;
         return p;
+    }
+
+    public void delData(T elem){
+        if(head == null){
+            return;
+        }
+        if(head.getData() == elem){
+            head = head.getNext();
+            return;
+        }
+        ListItem<T> p = head;
+        ListItem<T> e = p.getNext();
+        while(p.getNext() != null){
+            if(p.getNext().getNext() == elem){
+                e = p.getNext().getNext();
+            }
+            p = p.getNext();
+        }
+
     }
 }
